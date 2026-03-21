@@ -1,5 +1,13 @@
 import Todo from "./components/todo";
+import FilterButton from "./components/FilterButton";
+import Form from "./components/Form";
 function App(props) {
+  const tasklist= props.tasks?.map((task)=><Todo  
+  id={task.id} 
+  name={task.name} 
+  completed={task.completed}
+  key={task.id}
+  />);
   return (
     <div className="todoapp stack-large">
       <h1 hidden={false}> TodoMatic</h1>
@@ -42,9 +50,7 @@ function App(props) {
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading">
-        <Todo name="Eat" completed/>
-        <Todo name="Sleep" />
-        <Todo name="Repeat" />
+       {tasklist}
       </ul>
     </div>
   );
